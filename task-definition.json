@@ -1,0 +1,55 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "hello-world-container",
+      "image": "255650464628.dkr.ecr.ap-northeast-2.amazonaws.com/hello-world-app:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "hello-world-container-8080-tcp",
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/hello_world_task",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "ap-northeast-2",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "hello_world_task",
+  "executionRoleArn": "arn:aws:iam::255650464628:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "volumes": [],
+
+  "placementConstraints": [],
+
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "enableFaultInjection": false,
+  "tags": []
+}
