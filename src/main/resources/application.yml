@@ -1,0 +1,11 @@
+aws:
+  s3:
+    region: ap-northeast-2
+    bucket-name: hello-summer-bucket
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: helloWorld
